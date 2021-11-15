@@ -11,71 +11,53 @@ import DialogComponent from './DialogComponent';
 function BuildSelector(props) {
 
     const builds = {
-        challenger: [
+        warrior: [
             { statName: 'HP', statValue: 500, statMultiplier: 10 },
             { statName: 'ATK', statValue: 50, statMultiplier: 10 },
             { statName: 'MAG', statValue: 50, statMultiplier: 10 },
             { statName: 'DEF', statValue: 50, statMultiplier: 10 },
             { statName: 'SPR', statValue: 50, statMultiplier: 10 }],
-        shiny: [
+        paladin: [
             { statName: 'HP', statValue: 400, statMultiplier: 10 },
             { statName: 'ATK', statValue: 40, statMultiplier: 10 },
             { statName: 'MAG', statValue: 40, statMultiplier: 10 },
             { statName: 'DEF', statValue: 40, statMultiplier: 10 },
             { statName: 'SPR', statValue: 40, statMultiplier: 10 }],
-        mysterious: [
+        dragoon: [
             { statName: 'HP', statValue: 300, statMultiplier: 10 },
             { statName: 'ATK', statValue: 30, statMultiplier: 10 },
             { statName: 'MAG', statValue: 30, statMultiplier: 10 },
             { statName: 'DEF', statValue: 30, statMultiplier: 10 },
             { statName: 'SPR', statValue: 30, statMultiplier: 10 }],
-        speedrunner: [
+        healer: [
             { statName: 'HP', statValue: 200, statMultiplier: 10 },
             { statName: 'ATK', statValue: 20, statMultiplier: 10 },
             { statName: 'MAG', statValue: 20, statMultiplier: 10 },
             { statName: 'DEF', statValue: 20, statMultiplier: 10 },
             { statName: 'SPR', statValue: 20, statMultiplier: 10 }],
-        finisher: [
+        archmage: [
             { statName: 'HP', statValue: 150, statMultiplier: 10 },
             { statName: 'ATK', statValue: 15, statMultiplier: 10 },
             { statName: 'MAG', statValue: 15, statMultiplier: 10 },
             { statName: 'DEF', statValue: 15, statMultiplier: 10 },
-            { statName: 'SPR', statValue: 15, statMultiplier: 10 }],
-        tank: [
-            { statName: 'HP', statValue: 140, statMultiplier: 10 },
-            { statName: 'ATK', statValue: 14, statMultiplier: 10 },
-            { statName: 'MAG', statValue: 14, statMultiplier: 10 },
-            { statName: 'DEF', statValue: 14, statMultiplier: 10 },
-            { statName: 'SPR', statValue: 14, statMultiplier: 10 }],
-        mage: [
-            { statName: 'HP', statValue: 130, statMultiplier: 10 },
-            { statName: 'ATK', statValue: 13, statMultiplier: 10 },
-            { statName: 'MAG', statValue: 13, statMultiplier: 10 },
-            { statName: 'DEF', statValue: 13, statMultiplier: 10 },
-            { statName: 'SPR', statValue: 13, statMultiplier: 10 }],
+            { statName: 'SPR', statValue: 15, statMultiplier: 10 }]
     }
 
     function getBuild(buildValue) {
-        if(buildValue === 'challenger') {
-            return builds.challenger
+        if(buildValue === 'warrior') {
+            return builds.warrior
         }
-        else if(buildValue === 'shiny') {
-            return builds.shiny
+        else if(buildValue === 'paladin') {
+            return builds.paladin
         }
-        else if(buildValue === 'mysterious') {
-            return builds.mysterious
+        else if(buildValue === 'dragoon') {
+            return builds.dragoon
         }
-        else if(buildValue === 'speedrunner') {
-            return builds.speedrunner
+        else if(buildValue === 'healer') {
+            return builds.healer
         }
-        else if(buildValue === 'finisher') {
-            return builds.finisher
-        }
-        else if(buildValue === 'tank') {
-            return builds.tank
-        }
-        else if(buildValue === 'mage') {
-            return builds.mage
+        else if(buildValue === 'archmage') {
+            return builds.archmage
         }
     }
 
@@ -114,13 +96,11 @@ function BuildSelector(props) {
                     onChange={handleChange}
                 >
                 <MenuItem value={'custom'}>Custom build</MenuItem>
-                <MenuItem value={'challenger'}>The Challenger</MenuItem>
-                <MenuItem value={'shiny'}>The Shiny</MenuItem>
-                <MenuItem value={'mysterious'}>The Mysterious</MenuItem>
-                <MenuItem value={'speedrunner'}>Speedrunner</MenuItem>
-                <MenuItem value={'finisher'}>Finisher</MenuItem>
-                <MenuItem value={'tank'}>Tank</MenuItem>
-                <MenuItem value={'mage'}>Mage</MenuItem>
+                <MenuItem value={'warrior'}>Warrior</MenuItem>
+                <MenuItem value={'paladin'}>Paladin</MenuItem>
+                <MenuItem value={'dragoon'}>Dragoon</MenuItem>
+                <MenuItem value={'healer'}>Healer</MenuItem>
+                <MenuItem value={'archmage'}>Archmage</MenuItem>
                 </Select>
             </FormControl>
             <DialogComponent open={open} onClose={handleClose} updateCharacterStats={props.updateCharacterStats} />
