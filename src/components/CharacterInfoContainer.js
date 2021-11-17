@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import CharacterStats from './CharacterStats';
 import BuildSelector from './BuildSelector';
+import MonsterSelector from './MonsterSelector';
 
 const Container = styled.div`
     background-color: #e4a1c35c;
@@ -25,8 +26,11 @@ function CharacterInfoContainer(props) {
         <Container>
             <Title>{props.name}</Title>
             <CharacterStats stats={props.stats} />
-            {props.displayBuildSelecter === true &&
+            {props.displayBuildSelector === true &&
                 <BuildSelector updateCharacterStats={props.updateCharacterStats} />
+            }
+            {props.displayMonsterSelector === true &&
+                <MonsterSelector updateCharacterStats={props.updateCharacterStats} />
             }
         </Container>
     );

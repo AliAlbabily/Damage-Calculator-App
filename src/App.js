@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { monsters } from "./data/monsters-data";
 
 import CharacterContainer from './components/CharacterInfoContainer';
 import ButtonsContainer from './components/ButtonsContainer';
@@ -6,13 +7,7 @@ import CombatLogsContainer from './components/CombatLogsContainer';
 
 function App() {
 
-  const enemyStatsData = [
-    { statName: 'HP', statValue: 500, statMultiplier: 0 },
-    { statName: 'ATK', statValue: 40, statMultiplier: 0 },
-    { statName: 'MAG', statValue: 0, statMultiplier: 0 },
-    { statName: 'DEF', statValue: 0, statMultiplier: 0 },
-    { statName: 'SPR', statValue: 0, statMultiplier: 0 }
-  ]
+  const [enemyStatsData, setEnemyStatsData] = useState(monsters.shinobi)
 
   const [playerStatsData, setPlayerStatsData] = useState([
     { statName: 'HP', statValue: 100, statMultiplier: 0 },
@@ -26,6 +21,10 @@ function App() {
 
   function updateStatsData(newStatsDataArr) {
     setPlayerStatsData(newStatsDataArr)
+  }
+
+  function updateEnemyStats(newStatsDataArr) {
+    setEnemyStatsData(newStatsDataArr)
   }
 
   /* player - normal attack */
@@ -56,7 +55,7 @@ function App() {
       <CharacterContainer 
         name="Player" 
         stats={playerStatsData} 
-        displayBuildSelecter={true} 
+        displayBuildSelector={true} 
         updateCharacterStats={updateStatsData} 
       />
       <ButtonsContainer 
@@ -68,7 +67,8 @@ function App() {
       <CharacterContainer 
         name="Monster" 
         stats={enemyStatsData} 
-        displayBuildSelecter={false} 
+        displayMonsterSelector={true}
+        updateCharacterStats={updateEnemyStats}
       />
       <CombatLogsContainer damageLogs={damageLogsData} />
     </div>
