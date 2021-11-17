@@ -17,7 +17,7 @@ const Text = styled.span`
     text-shadow: #474747 2px 2px 2px
 `; 
 
-function CombatLogs(props) {
+function CombatLogsContainer(props) {
     let itemCounter = 0;
 
     return (
@@ -31,4 +31,4 @@ function CombatLogs(props) {
     );
 }
 
-export default CombatLogs;
+export default CombatLogsContainer;

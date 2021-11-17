@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import CharacterContainer from './components/CharacterInfoContainer';
 import ButtonsContainer from './components/ButtonsContainer';
-import CombatLogs from './components/CombatLogs';
+import CombatLogsContainer from './components/CombatLogsContainer';
 
 function App() {
 
@@ -53,15 +53,24 @@ function App() {
 
   return (
     <div className="App">
-      <CharacterContainer name="Player" stats={playerStatsData} displayBuildSelecter={true} updateCharacterStats={updateStatsData} />
+      <CharacterContainer 
+        name="Player" 
+        stats={playerStatsData} 
+        displayBuildSelecter={true} 
+        updateCharacterStats={updateStatsData} 
+      />
       <ButtonsContainer 
         playerStats={playerStatsData}
         enemyStats={enemyStatsData}
         attackMonster={attackMonster}
         attackPlayer={attackPlayer}
       />
-      <CharacterContainer name="Monster" stats={enemyStatsData} displayBuildSelecter={false} />
-      <CombatLogs damageLogs={damageLogsData} />
+      <CharacterContainer 
+        name="Monster" 
+        stats={enemyStatsData} 
+        displayBuildSelecter={false} 
+      />
+      <CombatLogsContainer damageLogs={damageLogsData} />
     </div>
   );
 }
