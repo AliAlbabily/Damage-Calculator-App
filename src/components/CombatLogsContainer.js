@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -16,10 +16,18 @@ const Text = styled.span`
     display: block;
     text-shadow: #474747 1px 1px 0px;
     font-family: monospace;
-`; 
+`;
 
 function CombatLogsContainer(props) {
     let itemCounter = 0;
+
+    const messagesEndRef = useRef(null) // create a refernce for the "div" element within the "container" element
+
+    const scrollToBottom = () => { // the function that does the "scroll to bottom"
+        messagesEndRef.current.scrollIntoView({ behavior: "smooth" })
+    }
+
+    useEffect(scrollToBottom, [props.damageLogs]) // "useEffect" calls "scrollToBottom" only on a certain state change (second argument)
 
     return (
         <Container>
@@ -28,6 +36,7 @@ function CombatLogsContainer(props) {
                 let itemKey = "itemKey" + itemCounter
                 return <Text key={itemKey}>{string}</Text>
             })}
+            <div ref={messagesEndRef} /> {/* the element to scroll to when a new message arrives */}
         </Container>
     );
 }
