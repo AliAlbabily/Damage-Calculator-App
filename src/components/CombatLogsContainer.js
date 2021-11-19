@@ -18,6 +18,14 @@ const Text = styled.span`
     font-family: monospace;
 `;
 
+function changeBackground(e) {
+    e.target.style.background = '#d8bfd57a';
+}
+
+function changeBackgroundToNormal(e) {
+    e.target.style.background = 'none';
+}
+
 function CombatLogsContainer(props) {
     let itemCounter = 0;
 
@@ -34,7 +42,7 @@ function CombatLogsContainer(props) {
             {(props.damageLogs || []).map(string => {
                 itemCounter++
                 let itemKey = "itemKey" + itemCounter
-                return <Text key={itemKey}>{string}</Text>
+                return <Text key={itemKey} onMouseEnter={changeBackground} onMouseLeave={changeBackgroundToNormal}>{string}</Text>
             })}
             <div ref={messagesEndRef} /> {/* the element to scroll to when a new message arrives */}
         </Container>

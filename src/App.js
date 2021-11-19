@@ -5,6 +5,21 @@ import CharacterContainer from './components/CharacterInfoContainer';
 import ButtonsContainer from './components/ButtonsContainer';
 import CombatLogsContainer from './components/CombatLogsContainer';
 
+function getDamageMessage(atk, mag) {
+  let atkPointsInteger = parseInt(atk)
+  let magPointsInteger = parseInt(mag)
+  
+  if (atkPointsInteger > magPointsInteger) {
+    return "The player dealt: " + atk + " damage points | [Offensive stat: ATK]"
+  }
+  else if (magPointsInteger > atkPointsInteger) {
+    return "The player dealt: " + mag + " damage points | [Offensive stat: MAG]"
+  } 
+  else if (atkPointsInteger === magPointsInteger) { // on equals, set the offensive stat to ATK
+    return "The player dealt: " + atk + " damage points | [Offensive stat: ATK]"
+  }
+}
+
 function App() {
 
   const [enemyStatsData, setEnemyStatsData] = useState(monsters.shinobi)
@@ -27,24 +42,27 @@ function App() {
     setEnemyStatsData(newStatsDataArr)
   }
 
-  /* player - normal attack */
+  /* player - normal attack (could be either ATK or MAG) */
   function attackMonster(playerStatsDataArr) {
-    let playerAttackStat = playerStatsDataArr[1].statValue
-    let newTextMessage = "The player dealt: " + playerAttackStat + " damage points"
+    let playerATK = playerStatsDataArr[1].statValue
+    let playerMAG = playerStatsDataArr[2].statValue
+    let newMessage = getDamageMessage(playerATK, playerMAG)
     setDamageLogsData(prevState => 
-      [...prevState, newTextMessage]
+      [...prevState, newMessage]
     )
   }
 
-  /* monster - normal attack */
+  /* monster - normal attack (always based on ATK) */
   function attackPlayer(enemyStatsDataArr, playerStatsDataArr) {
     let enemyAttackStat = enemyStatsDataArr[1].statValue
     let playerDefenceStat = playerStatsDataArr[3].statValue
     let damageDealt = enemyAttackStat - playerDefenceStat // formula
+
     if (damageDealt < 0) {
       damageDealt = 0
     }
-    let newTextMessage = "The enemy dealt: " + damageDealt + " damage points"
+
+    let newTextMessage = "The enemy dealt: " + damageDealt + " damage points | [Offensive stat: ATK] | [Player's defensive stat: DEF]"
     setDamageLogsData(prevState => 
       [...prevState, newTextMessage]
     )
