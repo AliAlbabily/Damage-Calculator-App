@@ -19,7 +19,7 @@ function App() {
 
   const [damageLogsData, setDamageLogsData] = useState([])
 
-  function updateStatsData(newStatsDataArr) {
+  function updatePlayerStats(newStatsDataArr) {
     setPlayerStatsData(newStatsDataArr)
   }
 
@@ -56,7 +56,7 @@ function App() {
         name="Player" 
         stats={playerStatsData} 
         displayBuildSelector={true} 
-        updateCharacterStats={updateStatsData} 
+        updateCharacterStats={updatePlayerStats} 
       />
       <ButtonsContainer 
         playerStats={playerStatsData}
