@@ -12,12 +12,12 @@ const Container = styled.div`
     width: 250px;
 `;
 
-const Title = styled.h3`
+const Title = styled.h2`
     text-align: center;
     margin-top: 5px;
     margin-bottom: 10px;
     color: #FFFFFF;
-    text-shadow: #474747 2px 2px 2px;
+    text-shadow: #474747 1px 1px 2px;
 `;
 
 function CharacterInfoContainer(props) {

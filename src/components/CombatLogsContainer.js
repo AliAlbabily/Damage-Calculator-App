@@ -14,7 +14,8 @@ const Container = styled.div`
 const Text = styled.span`
     color: white;
     display: block;
-    text-shadow: #474747 2px 2px 2px
+    text-shadow: #474747 1px 1px 0px;
+    font-family: monospace;
 `; 
 
 function CombatLogsContainer(props) {
