@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Damage-Calculator-App/static/css/main.2bafc7c0.css",
+    "main.js": "/Damage-Calculator-App/static/js/main.db42b14c.js",
+    "static/media/mechanical-background-6.jpg": "/Damage-Calculator-App/static/media/mechanical-background-6.5294a144fe44bf447d8e.jpg",
+    "index.html": "/Damage-Calculator-App/index.html",
+    "main.2bafc7c0.css.map": "/Damage-Calculator-App/static/css/main.2bafc7c0.css.map",
+    "main.db42b14c.js.map": "/Damage-Calculator-App/static/js/main.db42b14c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2bafc7c0.css",
+    "static/js/main.db42b14c.js"
+  ]
+}
