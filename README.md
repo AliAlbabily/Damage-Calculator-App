@@ -2,6 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Demo
+https://alialbabily.github.io/Damage-Calculator-App/
+
 ## Some shots of the application :
 ![app](https://user-images.githubusercontent.com/32642133/142704133-e41cf869-3e9a-4c64-986f-907159474860.png)
 ![custom-stats](https://user-images.githubusercontent.com/32642133/142704137-c316d094-47bf-4471-8099-e633e4708969.png)
